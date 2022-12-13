@@ -16,6 +16,6 @@ app = flask.Flask(__name__)
 def home():
     year = int(request.args['year'])
     try:
-        return series.loc[year]
+        return {'monarch': series.loc[year]}
     except KeyError:
         return f'Invalid input ({series.index.min()} - {series.index.max()})'
